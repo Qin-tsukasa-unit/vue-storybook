@@ -24,3 +24,8 @@ branchはmasterからfeatureを切って作業してください。
 featureブランチの名前は基本```feature/Issue番号```でお願いします。  
 作業が終わったらmasterにpull requestを出してください。  
 はじめのうちは私がレビューしてマージしますが、経験者の方がいればレビューお手伝いお願いします。  
+
+### 作業フォルダについて
+コンポーネントごとに以下のフォルダ内にフォルダを切ってください。  
+```stories/components```  
+例）stories/components/button
