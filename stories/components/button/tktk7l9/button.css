@@ -1,0 +1,6 @@
+.storybook-button--oval {
+  border-radius: 3em;
+}
+.storybook-button--rectangle {
+  border-radius: 0em;
+}
