@@ -1,0 +1,26 @@
+.card {
+  margin: 30px auto;
+  width: 400px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px #ccc;
+}
+
+.card-content {
+  padding: 10px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.card-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #333;
+}
+
+.card-text {
+  color: #777;
+  font-size: 15px;
+  line-height: 1.5;
+}
