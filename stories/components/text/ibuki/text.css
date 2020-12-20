@@ -1,0 +1,45 @@
+.storybook-text {
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+  padding: 15px 15px 15px 55px;
+  position: relative;
+}
+
+.storybook-text::before {
+  font-size: 18px;
+  display: inline-block;
+  background: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  text-align: center;
+  padding: 5px;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.storybook-text--question {
+  color: #333;
+  background-color: #b3ffff;
+}
+
+.storybook-text--question::before {
+  content: '?';
+}
+
+.storybook-text--danger {
+  color: #333;
+  background-color: #ffb3b3;
+}
+
+.storybook-text--danger::before {
+  content: '!';
+}
