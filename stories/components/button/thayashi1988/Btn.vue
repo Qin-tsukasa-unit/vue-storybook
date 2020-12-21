@@ -1,6 +1,6 @@
 <template>
   <div class="l-btn-container">
-    <a :href="href" :class="classes" v-if="showAnchorBtn">{{ anchorTxt }}</a>
+    <a :href="href" :class="classes" :style="style" v-if="showAnchorBtn">{{ anchorTxt }}</a>
     <button type="button" :class="classes" @click="onClick" :style="style" v-else>{{ btnTxt }}</button>
   </div>
 </template>
