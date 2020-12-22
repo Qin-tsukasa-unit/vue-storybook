@@ -1,7 +1,7 @@
 <template>
   <div class="l-btn-container">
     <a :href="href" :class="classes" :style="style" v-if="showAnchorBtn">{{ anchorTxt }}</a>
-    <button type="button" :class="classes" @click="onClick" :style="style" v-else>{{ btnTxt }}</button>
+    <button :type="type" :class="classes" @click="onClick" :style="style" v-else>{{ btnTxt }}</button>
   </div>
 </template>
 
@@ -41,6 +41,10 @@ export default {
       validator: function (value) {
         return ['small', 'middle', 'full',].indexOf(value) !== -1;
       },
+    },
+    type: {
+      type: String,
+      default: 'button',
     },
     backgroundColor: {
       type: String,
