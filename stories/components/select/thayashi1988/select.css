@@ -1,0 +1,25 @@
+.l-form{
+
+}
+.l-form-contents{
+  display: flex;
+  flex-direction: column;
+  max-width: 60%;
+  margin: 20px auto 0;
+}
+
+.l-form-label{
+}
+
+.l-form-parts{
+  margin-top: 5px;
+}
+
+.m-txt-center{
+  text-align: center;
+}
+
+.m-txt-alert{
+  font-size: 12px;
+  color: #ff0000;
+}
