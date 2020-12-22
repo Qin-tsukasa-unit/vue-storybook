@@ -7,6 +7,7 @@ export default {
     backgroundColor: { control: 'color' },
     color: { control: 'color' },
     size: { control: { type: 'select', options: ['small', 'middle', 'full'] } },
+    type: { control: { type: 'select', options: ['button', 'submit'] } },
   },
 };
 
