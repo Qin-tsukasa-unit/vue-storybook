@@ -3,7 +3,7 @@
     <div
       class="l-modal-layer"
       :class="{'is-open': layerOpen}"
-      :style="layerBgColorStyle"
+      :style="layerBackgroundColor"
       @click.self="closeModal">
       <div class="l-modal-inner">
         <slot name="modalContent">
@@ -12,22 +12,17 @@
           text="使ってみました"
           ></Card>
         </slot>
-        <Btn
-          anchorTxt=""
-          btnTxt="閉じる"
-          :primary=false
-          size="middle"
-          @onClick="closeModal"
-        ></Btn>
+        <slot name="modalCloseBtn">
+          <Btn
+            anchorTxt=""
+            btnTxt="閉じる"
+            :primary=false
+            size="middle"
+            @onClick="closeModal"
+          ></Btn>
+        </slot>
       </div>
     </div>
-    <Btn
-      anchorTxt=""
-      btnTxt="開く"
-      primary
-      size="middle"
-      @onClick="openModal"
-    ></Btn>
   </div>
 
 </template>
@@ -40,31 +35,29 @@ import Card from '../../card/wi-tech/Card.vue';
 export default {
   name: 'Dialog',
   data() {
-      return {
-        layerOpen: false,
-        isShow: false,
-      }
+    return {
+      isShow: false,
+    }
   },
   props: {
     layerBackgroundColor: {
-      type: String,
-    }
+      type: Object,
+    },
+    layerOpen: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     layerBgColorStyle() {
     return {
         backgroundColor: this.layerBackgroundColor,
-      };
-    }
+      }
+    },
   },
   methods: {
-    openModal() {
-      this.isShow = !this.isShow
-      this.layerOpen = !this.layerOpen
-    },
     closeModal() {
-      this.isShow = false
-      this.layerOpen = false
+      this.$emit('closeModal')
     }
   },
   components: {

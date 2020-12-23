@@ -15,4 +15,11 @@ const Template = (args, { argTypes }) => ({
 });
 
 export const BasicDialog = Template.bind({});
-BasicDialog.args = {};
+BasicDialog.args = {
+  // triggerBtnTxt: '開く',
+  // triggerAnchorTxt: '',
+  // cardTtl: 'カードコンポーネントを',
+  // cardTxt: '使ってみました',
+  // closeBtnTxt: '閉じる',
+  // closeAnchorTxt: '',
+};
