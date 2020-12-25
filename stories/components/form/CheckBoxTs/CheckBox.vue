@@ -40,7 +40,6 @@ export default class CheckBox extends Vue {
 
   @Emit('input')
   private updateValue(elm: HTMLInputElement) :Array<string>{
-    // console.log(elm);
     return this.selected;
   }
 }

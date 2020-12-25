@@ -33,7 +33,6 @@ export default class RadioButton extends Vue {
 
   private changeSelected() :void {
     if (event!.target instanceof HTMLInputElement) {
-      // console.log(event!.target.value)
       this.updateValue(event!.target.value)
     }
   }
