@@ -2,9 +2,9 @@
   <form action="">
     <p>{{ title }}</p>
 
-    <MyCheckBox :items="itemData.items" @on-change="onCheckChange" v-model="itemData.check"></MyCheckBox>
+    <MyCheckBox :items="itemData.items" v-model="itemData.check"></MyCheckBox>
     <p>{{ itemData.check }}</p>
-    <MyRadioButton :items="itemData.radioItems" name="sample-radio" @on-change="onRadioChange" v-model="itemData.radio"></MyRadioButton>
+    <MyRadioButton :items="itemData.radioItems" name="sample-radio" v-model="itemData.radio"></MyRadioButton>
     <p>{{ itemData.radio }}</p>
   </form>
 </template>
@@ -38,16 +38,7 @@ export default {
   },
   props: {
     title: String,
-  },
-  methods: {
-    onCheckChange(e) {
-      // console.log(e);
-    },
-    onRadioChange(e) {
-      // console.log(e);
-    }
   }
-
 };
 </script>
 

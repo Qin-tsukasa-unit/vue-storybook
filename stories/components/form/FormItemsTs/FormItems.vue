@@ -2,9 +2,9 @@
   <form action="">
     <p>{{ title }}</p>
 
-    <MyCheckBox :items="items" @on-change="onCheckChange" v-model="check"></MyCheckBox>
+    <MyCheckBox :items="items" v-model="check"></MyCheckBox>
     <p>{{ check }}</p>
-    <MyRadioButton :items="radioItems" name="sample-radio" @on-change="onRadioChange" v-model="radio"></MyRadioButton>
+    <MyRadioButton :items="radioItems" name="sample-radio" v-model="radio"></MyRadioButton>
     <p>{{ radio }}</p>
   </form>
 </template>
@@ -39,13 +39,6 @@ export default class FormItems extends Vue {
   @Prop()
   private title: string
 
-  private onCheckChange(e: Array<string>): void {
-    // console.log(e);
-  }
-
-  private onRadioChange(e: string): void {
-    // console.log(e);
-  }
 }
 </script>
 
