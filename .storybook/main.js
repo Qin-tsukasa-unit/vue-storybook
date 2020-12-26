@@ -8,6 +8,11 @@ module.exports = {
     "@storybook/addon-essentials"
   ],
   webpackFinal: (config) => {
+    config.module.rules.push({
+      test: /\.scss$/,
+      exclude: /node_modules/,
+      loader: ['style-loader', 'css-loader', 'sass-loader'],
+    });
     config.resolve.extensions.push('.ts', '.tsx', '.vue', '.css', '.less', '.scss', '.sass', '.html');
     config.module.rules.push({ // TypeScriptに対応する
       test: /\.ts$/,
