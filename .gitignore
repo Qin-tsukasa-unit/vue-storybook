@@ -1,6 +1,7 @@
 node_modules/
 .DS_Store
 npm-debug.log*
+storybook-static/
 
 # Editor directories and files
 .vscode

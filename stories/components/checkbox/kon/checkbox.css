@@ -1,0 +1,26 @@
+.storybook-checkbox{
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.storybook-checkbox input{
+  position: absolute;
+  opacity: 0;
+}
+
+.storybook-checkbox span{
+  padding: 5px 15px;
+  display: block;
+  opacity: 0.5;
+  background-color: #0000cd;
+  color: #fff;
+}
+
+.storybook-checkbox input:checked + span{
+  opacity: 1;
+}
+
+.storybook-checkbox--easing span{
+  transition: .5s;
+}

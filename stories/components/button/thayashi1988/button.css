@@ -19,6 +19,7 @@
   max-width: 50%;
   background-color: #42b983;
   padding: 15px 30px;
+  outline: none;
 }
 
 .m-btn-arrow-before::before{
