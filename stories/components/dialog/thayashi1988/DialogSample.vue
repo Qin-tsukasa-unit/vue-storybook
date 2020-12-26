@@ -67,5 +67,4 @@ export default {
     Dialog,
   }
 };
-
 </script>

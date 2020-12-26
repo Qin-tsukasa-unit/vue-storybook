@@ -14,8 +14,8 @@
         </slot>
         <slot name="modalCloseBtn">
           <Btn
-            anchorTxt=""
-            btnTxt="閉じる"
+            anchor-txt=""
+            btn-txt="閉じる"
             :primary=false
             size="middle"
             @onClick="closeModal"
@@ -24,7 +24,6 @@
       </div>
     </div>
   </div>
-
 </template>
 
 <script>
@@ -65,5 +64,4 @@ export default {
     Card
   }
 };
-
 </script>
