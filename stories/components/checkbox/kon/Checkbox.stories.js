@@ -12,7 +12,7 @@ export default {
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { MyCheckbox },
-  template: '<my-checkbox @onClick="onClick" v-bind="$props" />',
+  template: '<my-checkbox v-bind="$props" />',
 });
 
 export const Checkbox = Template.bind({});
