@@ -6,8 +6,6 @@
 </template>
 
 <script>
-import './button.css';
-
 export default {
   name: 'Btn',
 
@@ -82,3 +80,71 @@ export default {
   },
 };
 </script>
+<style lang="scss" scoped>
+.l-btn{
+  &-container{
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  }
+}
+
+.m-btn{
+  position: relative;
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  display: inline-block;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  border-radius: 3em;
+  cursor: pointer;
+  width: 100%;
+  max-width: 50%;
+  background-color: #42b983;
+  padding: 15px 30px;
+  outline: none;
+  &-arrow{
+    &-before{
+      &::before{
+        content: "";
+        position: absolute;
+        top: calc(50% - 4px);
+        left: 15px;
+        width: 8px;
+        height: 8px;
+        border: 3px solid #333;
+        border-left: 0;
+        border-bottom: 0;
+        transform: rotate(45deg);
+      }
+    }
+    &-after{
+      &::after{
+        content: "";
+        position: absolute;
+        top: calc(50% - 4px);
+        right: 15px;
+        width: 8px;
+        height: 8px;
+        border: 3px solid #333;
+        border-left: 0;
+        border-bottom: 0;
+        transform: rotate(45deg);
+      }
+    }
+  }
+  &-white{
+    color: #333;
+    border: 1px solid #333;
+    background-color: #fff;
+  }
+  &-full{
+    max-width: 100%;
+  }
+  &-small{
+    max-width: 30%;
+  }
+}
+</style>
