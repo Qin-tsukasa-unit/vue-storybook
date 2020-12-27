@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import dec2hex from './dec2hex';
-import dec2bin from './dec2bin';
+import dec2hex from './Dec2Hex';
+import dec2bin from './Dec2Bin';
 
 export default {
   name: 'dec2conv',

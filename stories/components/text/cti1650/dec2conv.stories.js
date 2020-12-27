@@ -1,4 +1,4 @@
-import dec2conv from './dec2conv.vue';
+import dec2conv from './Dec2Conv.vue';
 
 export default {
   title: 'Example/Text/cti1650',

@@ -3,7 +3,7 @@
         <input v-if="!hidden" type="number" v-model="numDec"> <b>{{ toHex }}</b>
     </div>
 </template>
-
+ 
 <script>
 export default {
     name: 'dec2hex',
