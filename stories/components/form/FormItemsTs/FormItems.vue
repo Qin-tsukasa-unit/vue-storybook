@@ -1,11 +1,32 @@
 <template>
-  <form action="">
+  <form
+    action=""
+    @submit="checkForm"
+    method="post"
+  >
     <p>{{ title }}</p>
 
     <MyCheckBox :items="items" v-model="check"></MyCheckBox>
     <p>{{ check }}</p>
     <MyRadioButton :items="radioItems" name="sample-radio" v-model="radio"></MyRadioButton>
     <p>{{ radio }}</p>
+
+    <MyInputEmail
+      v-model.lazy="email"
+      type="email"
+      name="email"
+      value=""
+      placeholder="e-mailを入力してください。"
+      :primary=true
+    ></MyInputEmail>
+    <MyInputEmail
+      v-model.lazy="email"
+      type="text"
+      name="email-text"
+      value=""
+      placeholder="e-mailを入力してください。"
+    ></MyInputEmail>
+    <p>{{ email }}</p>
   </form>
 </template>
 
@@ -14,16 +35,19 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 import { ItemAlternative } from '../ItemAlternative'
 import MyCheckBox from '../CheckBoxTs/CheckBox.vue'
 import MyRadioButton from '../RadioButtonTs/RadioButton.vue'
+import MyInputEmail from '../InputEmailTs/InputEmail.vue'
 
 @Component({
   components:{
     MyCheckBox,
-    MyRadioButton
+    MyRadioButton,
+    MyInputEmail
   }
 })
 
 export default class FormItems extends Vue {
 
+  private email: string = ""
   private check: Array<string> = []
   private radio: string = ""
   private items: Array<ItemAlternative> = [
@@ -37,7 +61,11 @@ export default class FormItems extends Vue {
   ]
 
   @Prop()
-  private title: string
+  private title!: string
+
+  private checkForm(event: Event) :void {
+    event.preventDefault();
+  }
 
 }
 </script>
