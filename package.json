@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook": "start-storybook -p 6006 -s ./stories/assets",
+    "build-storybook": "build-storybook",
+    "tailwind": "tailwindcss build ./src/styles/tailwind.css -o ./stories/assets/styles/tailwind.css",
+    "build-tailwind": "NODE_ENV=production tailwindcss build ./src/styles/tailwind.css -o ./dist/styles/tailwind.css"
   },
   "repository": {
     "type": "git",
@@ -20,6 +22,7 @@
   },
   "homepage": "https://github.com/tatsuHigh/vue-storybook#readme",
   "dependencies": {
+    "tailwindcss": "^2.0.2",
     "vue": "^2.6.10"
   },
   "devDependencies": {
@@ -29,8 +32,10 @@
     "@storybook/addon-links": "^6.1.11",
     "@storybook/vue": "^6.1.11",
     "@types/storybook__vue": "^5.2.1",
+    "autoprefixer": "^10.1.0",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.0.1",
+    "postcss": "^8.2.2",
     "sass": "^1.30.0",
     "sass-loader": "^10.1.0",
     "ts-loader": "^8.0.12",
