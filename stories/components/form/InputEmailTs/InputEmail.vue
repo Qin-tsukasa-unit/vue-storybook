@@ -1,12 +1,13 @@
 <template>
   <p>
-    <label :for="name">Email</label>
+    <label :for="name">Email（input[type={{type}}]）</label>
     <input
       :type="type"
       :name="name"
       :value="value"
       :placeholder="placeholder"
       @change="changeValue"
+      @blur="changeValue"
       class="input__email"
       :class="classes"
       :id="name"
@@ -19,6 +20,8 @@ import { Component, Prop, Vue, Emit } from 'vue-property-decorator';
 
 @Component
 export default class InputEmail extends Vue {
+
+  private errors: Array<string> = []
 
   @Prop()
   private value!: string
@@ -45,13 +48,12 @@ export default class InputEmail extends Vue {
   private changeValue(event: Event) :void {
     if (event!.target instanceof HTMLInputElement) {
       const e: HTMLInputElement = event.target;
+      this.errors = [];
 
-      if (this.type !== 'email') {
-        if (!e.value) {
-          alert('入力が空です');
-        } else if (!this.validEmail(e.value)) {
-          alert('メールアドレスの形式で入力してください。');
-        }
+      if (!e.value) {
+        this.errors.push("入力が空です。");
+      } else if (!this.validEmail(e.value)) {
+        this.errors.push("メールアドレスの形式で入力してください。");
       }
 
       this.updateValue(event!.target)
@@ -63,9 +65,15 @@ export default class InputEmail extends Vue {
     return re.test(email);
   }
 
-  @Emit('input')
-  private updateValue(elm: HTMLInputElement) :string{
-    return elm.value;
+  @Emit('input-email')
+  private updateValue(elm: HTMLInputElement) :object {
+    const value: string = elm.value;
+    const errors: Array<string> = this.errors;
+
+    return {
+      value,
+      errors
+    }
   }
 }
 </script>

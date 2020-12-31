@@ -12,21 +12,19 @@
     <p>{{ radio }}</p>
 
     <MyInputEmail
-      v-model.lazy="email"
+      @input-email="validEmail"
       type="email"
-      name="email"
-      value=""
-      placeholder="e-mailを入力してください。"
-      :primary=true
-    ></MyInputEmail>
-    <MyInputEmail
-      v-model.lazy="email"
-      type="text"
       name="email-text"
       value=""
       placeholder="e-mailを入力してください。"
     ></MyInputEmail>
     <p>{{ email }}</p>
+    <p v-if="emailErrors.length">
+      <ul>
+        <li v-for="(error, key) in emailErrors" :key="key">{{ error }}</li>
+      </ul>
+    </p>
+    <button>送信</button>
   </form>
 </template>
 
@@ -36,6 +34,11 @@ import { ItemAlternative } from '../ItemAlternative'
 import MyCheckBox from '../CheckBoxTs/CheckBox.vue'
 import MyRadioButton from '../RadioButtonTs/RadioButton.vue'
 import MyInputEmail from '../InputEmailTs/InputEmail.vue'
+
+interface EmailAlternative {
+  value: string;
+  errors: Array<string>;
+}
 
 @Component({
   components:{
@@ -48,6 +51,7 @@ import MyInputEmail from '../InputEmailTs/InputEmail.vue'
 export default class FormItems extends Vue {
 
   private email: string = ""
+  private emailErrors: Array<string> = []
   private check: Array<string> = []
   private radio: string = ""
   private items: Array<ItemAlternative> = [
@@ -64,9 +68,15 @@ export default class FormItems extends Vue {
   private title!: string
 
   private checkForm(event: Event) :void {
-    event.preventDefault();
+    if (!this.emailErrors.length) {
+        event.preventDefault();
+      }
   }
 
+  private validEmail(obj: EmailAlternative) :void {
+    this.email = obj.value;
+    this.emailErrors = obj.errors;
+  }
 }
 </script>
 

@@ -12,21 +12,19 @@
     <p>{{ itemData.radio }}</p>
 
     <MyInputEmail
-      v-model.lazy="email"
+      @input-email="validEmail"
       type="email"
-      name="email"
-      value=""
-      placeholder="e-mailを入力してください。"
-      :primary=true
-    ></MyInputEmail>
-    <MyInputEmail
-      v-model.lazy="email"
-      type="text"
       name="email-text"
       value=""
       placeholder="e-mailを入力してください。"
     ></MyInputEmail>
     <p>{{ email }}</p>
+    <p v-if="emailErrors.length">
+      <ul>
+        <li v-for="(error, key) in emailErrors" :key="key">{{ error }}</li>
+      </ul>
+    </p>
+    <button>送信</button>
   </form>
 </template>
 
@@ -45,6 +43,7 @@ export default {
   data() {
     return {
       email: '',
+      emailErrors: [],
       itemData: {
         check: [],
         radio: '',
@@ -65,7 +64,13 @@ export default {
   },
   methods:{
     checkForm: function (e) {
-      e.preventDefault();
+      if (!this.emailErrors.length) {
+        e.preventDefault();
+      }
+    },
+    validEmail: function (value, errors) {
+      this.email = value;
+      this.emailErrors = errors;
     }
   }
 };

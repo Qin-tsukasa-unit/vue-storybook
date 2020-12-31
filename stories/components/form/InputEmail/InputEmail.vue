@@ -1,12 +1,13 @@
 <template>
   <p>
-    <label :for="name">Email</label>
+    <label :for="name">Email（input[type={{type}}]）</label>
     <input
       :type="type"
       :name="name"
       :value="value"
       :placeholder="placeholder"
       @change="updateValue"
+      @blur="updateValue"
       class="input__email"
       :class="classes"
       :id="name"
@@ -16,6 +17,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+      errors: [],
+    };
+  },
   props: {
     value: { type: String, required: true },
     type: { type: String, required: true },
@@ -33,14 +39,13 @@ export default {
   },
   methods: {
     updateValue: function(e) {
-      if (this.type !== 'email') {
-        if (!e.target.value) {
-          alert('入力が空です。');
-        } else if (!this.validEmail(e.target.value)) {
-          alert('メールアドレスの形式で入力してください。');
-        }
+      this.errors = [];
+      if (!e.target.value) {
+        this.errors.push("入力が空です。");
+      } else if (!this.validEmail(e.target.value)) {
+        this.errors.push("メールアドレスの形式で入力してください。");
       }
-      this.$emit("input", e.target.value);
+      this.$emit('input-email', e.target.value, this.errors)
     },
     validEmail: function (email) {
       const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
