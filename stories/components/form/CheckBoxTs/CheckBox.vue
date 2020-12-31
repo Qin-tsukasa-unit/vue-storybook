@@ -19,13 +19,13 @@ import { ItemAlternative } from '../ItemAlternative';
 
 @Component
 export default class CheckBox extends Vue {
-  private item: ItemAlternative
+  private item!: ItemAlternative
   private selected: Array<string> = []
 
   @Prop()
-  private items: Array<ItemAlternative>
+  private items!: Array<ItemAlternative>
 
-  private changeSelected() :void {
+  private changeSelected(event: Event) :void {
     if (event!.target instanceof HTMLInputElement) {
       const e: HTMLInputElement = event.target;
       if(e.checked){

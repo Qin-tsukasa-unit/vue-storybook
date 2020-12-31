@@ -20,10 +20,10 @@ import { ItemAlternative } from '../ItemAlternative';
 
 @Component
 export default class RadioButton extends Vue {
-  private item: ItemAlternative
+  private item!: ItemAlternative
 
   @Prop()
-  private items: Array<ItemAlternative>
+  private items!: Array<ItemAlternative>
 
   @Prop({ default: '' })
   value!: string;
