@@ -1,18 +1,13 @@
 <template>
-  <div :class="headingContainerClass">
-      <h2 :class="heading2Class" v-if="headingLevel2"><slot>見出しレベル2コンポーネント</slot></h2>
-      <h3 :align="align" :class="heading3Class" v-if="headingLevel3"><span><slot>見出しレベル3コンポーネント</slot></span></h3>
+  <div class="l-heading-container" :class="headingContainerClass">
+      <h2 class="m-heading-2" :class="heading2ClassOptions" v-if="headingLevel2"><slot>見出しレベル2コンポーネント</slot></h2>
+      <h3 class="m-heading-3" :class="heading3ClassOptions" v-if="headingLevel3"><span><slot>見出しレベル3コンポーネント</slot></span></h3>
   </div>
 </template>
 
 <script>
 export default {
   name: 'Heading',
-  data() {
-    return{
-
-    }
-  },
   props: {
     /**
      * テキストの配置
@@ -38,32 +33,30 @@ export default {
       type:Boolean,
       default: false
     },
+    /**
+     * 見出しレベル3の左に縦線を付与
+     */
     headingLevel3Border: {
       type:Boolean,
       default: true
     }
   },
   computed: {
-    heading2Class() {
+    heading2ClassOptions() {
       return {
-        'm-heading-2': true,
-        'm-heading-3': false,
         [`m-heading-${this.align}`]: true
       };
     },
-    heading3Class() {
+    heading3ClassOptions() {
       return {
-        'm-heading-2': false,
-        'm-heading-3': true,
         'm-heading-3-border': this.headingLevel3Border,
         [`m-heading-${this.align}`]: true
       };
     },
     headingContainerClass() {
       return {
-        'l-heading-container': true,
-        'l-heading2-container': this.headingLevel2,
-        'l-heading3-container': this.headingLevel3,
+        'l-heading-container-2': this.headingLevel2,
+        'l-heading-container-3': this.headingLevel3,
       };
     },
   }
@@ -72,14 +65,13 @@ export default {
 
 <style lang="scss" scoped>
 .l-heading{
-  $this: &;
   &-container{
     text-align: left;
-    &#{$this}2-container{
+    &-2{
       margin-top: 30px;
       margin-bottom: 50px;
     }
-    &#{$this}3-container{
+    &-3{
       margin-top: 15px;
       margin-bottom: 25px;
     }

@@ -14,5 +14,5 @@ const Template = (args, { argTypes }) => ({
   template: '<Heading v-bind="$props" />',
 });
 
-export const Heading2 = Template.bind({});
-Heading2.args = {};
+export const Headings = Template.bind({});
+Headings.args = {};
