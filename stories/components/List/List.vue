@@ -37,7 +37,7 @@ export default {
     },
     itemList: {
       type: Array,
-      default: ["a", "b", "c"],
+      default: [],
     },
   },
 };
