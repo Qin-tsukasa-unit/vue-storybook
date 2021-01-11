@@ -21,7 +21,7 @@ export const OrderedList = Template.bind({});
 OrderedList.args = {
   hasOrderedList: true,
   itemList: [
-    "hogehogehogehogehogehogehogehoge\nhogehogehogehoge",
+    "hogehogehogehogehogehogehogehogehogehogehogehogehogehogehogehoge\nhogehogehogehogehogehogehogehoge",
     "hogehogehogehogehogehogehogehoge",
   ],
 };
@@ -30,7 +30,7 @@ export const UnOrderedList = Template.bind({});
 UnOrderedList.args = {
   hasOrderedList: false,
   itemList: [
-    "hogehogehogehogehogehogehogehoge\nhogehogehogehoge",
+    "hogehogehogehogehogehogehogehogehogehogehogehogehogehogehogehoge\nhogehogehogehogehogehogehogehoge",
     "hogehogehogehogehogehogehogehoge",
   ],
 };
