@@ -22,17 +22,14 @@ export default {
       type: String,
       default: "1",
       validator: function (value) {
-        return ["1", "a", "i"].filter((type) => type === value).length === 1;
+        return ["1", "a", "i"].includes(value);
       },
     },
     unOrderType: {
       type: String,
       default: "disc",
       validator: function (value) {
-        return (
-          ["disc", "circle", "square"].filter((type) => type === value)
-            .length === 1
-        );
+        return ["disc", "circle", "square"].includes(value);
       },
     },
     itemList: {
