@@ -1,7 +1,7 @@
 import List from "./List.vue";
 
 export default {
-  title: "Example/List",
+  title: "Example/List/aoken0714",
   component: List,
   argTypes: {
     orderType: { control: { type: "select", options: ["1", "a", "i"] } },
