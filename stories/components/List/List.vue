@@ -37,7 +37,5 @@ export default {
       default: ["a", "b", "c"],
     },
   },
-  computed: {
-  }
 }
 </script>
