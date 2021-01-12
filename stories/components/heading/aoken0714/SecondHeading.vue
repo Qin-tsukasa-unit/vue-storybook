@@ -8,7 +8,7 @@ export default {
       type: Number,
       required: true,
       validator: function (value) {
-        return [1, 2, 3].includes(value);
+        return [1, 2, 3, 4, 5, 6].includes(value);
       },
     },
   },

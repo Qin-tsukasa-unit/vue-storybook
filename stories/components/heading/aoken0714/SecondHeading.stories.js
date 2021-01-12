@@ -4,7 +4,7 @@ export default {
   title: "Example/Heading/aoken0714",
   component: Heading,
   argTypes: {
-    level: { control: { type: "select", options: [1, 2, 3] } },
+    level: { control: { type: "select", options: [1, 2, 3, 4, 5, 6] } },
   },
 };
 
