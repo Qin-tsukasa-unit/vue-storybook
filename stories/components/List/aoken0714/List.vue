@@ -34,7 +34,7 @@ export default {
     },
     itemList: {
       type: Array,
-      default: [],
+      required: true
     },
   },
 };
