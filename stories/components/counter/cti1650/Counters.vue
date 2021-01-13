@@ -1,7 +1,7 @@
 <template>
   <div class="conters">
     <counter
-      v-for="item in items"
+      v-for="(item, index) in items" :key="index"
       :title="item.name"
       :defCount="item.value"
       @add="doAdd"
