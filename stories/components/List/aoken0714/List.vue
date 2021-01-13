@@ -1,11 +1,11 @@
 <template>
   <ol v-if="hasOrderedList" :type="orderType">
-    <li v-for="item in itemList" :key="item">
+    <li v-for="(item, index) in itemList" :key="index">
       {{ item }}
     </li>
   </ol>
   <ul v-else :type="unOrderType">
-    <li v-for="item in itemList" :key="item">
+    <li v-for="(item, index) in itemList" :key="index">
       {{ item }}
     </li>
   </ul>
@@ -34,7 +34,7 @@ export default {
     },
     itemList: {
       type: Array,
-      required: true
+      required: true,
     },
   },
 };
